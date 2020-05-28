@@ -41,11 +41,6 @@ class App extends React.Component {
       })
     })
   }
-  
-
-
-
-
   getSheetValues = async () =>{
     const request = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/A1:B5`,
     {
