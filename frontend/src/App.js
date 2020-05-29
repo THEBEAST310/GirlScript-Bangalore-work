@@ -7,9 +7,34 @@ import Lazy from "./components/Lazy/Lazy";
 
 const Home = Lazy(() => import("./components/Home/Home"));
 const SHEET_ID = '1BiCQCalaA6-dfnY03RWMxb5VCe-wz2RCgz4HbPjcBPA';
-const ACCESS_TOKEN = 'ya29.a0AfH6SMD0lYvp5srthMTu3_lX_mB5EF9HkxKh88RYV82CzVANO7vnLOyoUTCsvlpp1Zull5IYGaybNmkF_1SKEYSjVD7D4JLvaS18858cxL-LZph2pE_klgD6YMDGIXKcdystjDPxjSIoB2Mn85zZdeFBeDOhk3asFus';
+const ACCESS_TOKEN = 'ya29.a0AfH6SMCuEcf-yuLEdzntaN4t-mS9z0_PCduVZONgGAD3tMleJ-_PB0pFChIeCt3UYS2QOuLE0iCzZTTsK0bfZGhxQ5bSy0Zpx2RKsRWqLn10RWsTdpFaGcFZfkhHgn54YRJ-Aqb4SbPAkA24UStLRhKp0srKEZmKZpkJ';
 
 class App extends React.Component {
+  createSheetValues = () => {
+    fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}:batchUpdate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${ACCESS_TOKEN}`  
+      },
+      body: JSON.stringify({
+        requests: [
+          {
+            "insertDimension": {
+              "range": {
+                "sheetId": 0,
+                "dimension": "ROWS",
+                "startIndex": 0,
+                "endIndex": 1
+              },
+              "inheritFromBefore": false
+            }
+          },
+        ],
+      })
+    })
+  }
+  
   updateSheetValues = () => {
     fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}:batchUpdate`, {
       method: "POST",
@@ -42,7 +67,7 @@ class App extends React.Component {
     })
   }
   getSheetValues = async () =>{
-    const request = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/A1:B5`,
+    const request = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/A1:B6`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -53,16 +78,47 @@ class App extends React.Component {
     console.log(data);
     return data;
   }
+  deleteSheetValues = () => {
+    fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}:batchUpdate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${ACCESS_TOKEN}`  
+      },
+      body: JSON.stringify({
+        requests: [
+          {
+            "deleteDimension": {
+              "range": {
+                "sheetId": 0,
+                "dimension": "ROWS",
+                "startIndex": 0,
+                "endIndex": 1
+              }
+            }
+          },
+        ],
+      })
+    })
+  }
+  
+
   
   render() {
     return (
       <div className="App">
+        <button onClick={this.createSheetValues}>Create a new row</button>
+        <br></br>
         <button onClick={this.getSheetValues}>Get sheet values</button>
         <br></br>
         <button onClick={this.updateSheetValues}>Update A1</button>
+        <br></br>
+        <button onClick={this.deleteSheetValues}>Delete the first row</button>
       </div>
     );
   }
 }
 export default App;
+
+
 
