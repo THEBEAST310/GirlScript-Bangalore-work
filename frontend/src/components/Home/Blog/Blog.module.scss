@@ -1,0 +1,109 @@
+.blog-section {
+  padding: 40px;
+
+  // Might not be required when the global css are added.
+  background-color: #000;
+  color: #fff;
+  font-size: 20px;
+
+  // To be removed when Heading component is added
+  .blog-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ef7326;
+    font-size: 56px;
+  }
+
+  .blog-list-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+
+    .blog-item-container {
+      flex: 1;
+      min-width: 350px;
+      height: auto;
+      background-color: #ef7326;
+      border-radius: 20px;
+      color: black;
+      position: relative;
+      margin-right: 40px;
+      margin-top: 125px;
+
+      .blog-item-image {
+        position: absolute;
+        top: 0;
+        right: 50%;
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        border: 5px solid #000;
+        transform: translate(50%, -50%);
+      }
+
+      .blog-item-contents {
+        padding: 15px;
+        padding-top: 125px;
+        margin-bottom: 20px; 
+
+        .blog-item-title {
+          font-weight: bold;
+          margin-bottom: 20px;
+          font-size: 36px;
+        }
+
+        .blog-item-desc {
+          margin-bottom: 40px;
+        }
+
+        .blog-item-btn {
+          background-color: #000;
+          color: #fff;
+          padding: 10px 35px;
+          border-radius: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 768px) {
+  .blog-section {
+    .blog-list-container {
+      .blog-item-container {
+        margin-right: 0;
+
+        .blog-item-image {
+          width: 175px;
+          height: 175px;
+        }
+
+        .blog-item-contents {
+          padding-top: 100px;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 425px) {
+  .blog-section {
+    .blog-list-container {
+      .blog-item-container {
+        min-width: 200px;
+
+        .blog-item-image {
+          width: 150px;
+          height: 150px;
+        }
+
+        .blog-item-contents {
+          padding-top: 100px;
+        }
+      }
+    }
+  }
+}
