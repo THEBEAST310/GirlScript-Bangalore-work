@@ -1,45 +1,18 @@
 import React from "react";
 import styles from "./Blog.module.scss";
+import { getBlogData } from "../../../services/sheets";
 
 function Blog() {
-  const blogs = [
-    {
-      id: 1,
-      title: "Blog Name",
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." + 
-      " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," + 
-      " when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      link: "https://google.com",
-      img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iL12gXXoS9IorW6SNe6xBQHaEK%26pid%3DApi&f=1"
-    },
-    {
-      id: 2,
-      title: "Blog Name",
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." + 
-      " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," + 
-      " when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      link: "https://google.com",
-      img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iL12gXXoS9IorW6SNe6xBQHaEK%26pid%3DApi&f=1"
-    },
-    {
-      id: 3,
-      title: "Blog Name",
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." + 
-      " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," + 
-      " when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      link: "https://google.com",
-      img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iL12gXXoS9IorW6SNe6xBQHaEK%26pid%3DApi&f=1"
-    },
-    {
-      id: 4,
-      title: "Blog Name",
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." + 
-      " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," + 
-      " when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      link: "https://google.com",
-      img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iL12gXXoS9IorW6SNe6xBQHaEK%26pid%3DApi&f=1"
-    },
-  ];
+  const [blogs, setBlogs] = React.useState([]);
+
+  React.useEffect(() => {
+    (async () => {
+      const data = await getBlogData();
+      if(data) {
+        setBlogs(data);
+      }
+    })();
+  });
 
   return (
     <section className={styles['blog-section']}>
@@ -47,9 +20,9 @@ function Blog() {
       <h2 className={styles['blog-title']}>Our Blogs</h2>
 
       <div className={styles['blog-list-container']}>
-        {blogs.map(elem => {
+        {blogs.map((elem, index) => {
           return (
-            <BlogItem key={elem.id} title={elem.title} desc={elem.desc} img={elem.img} link={elem.link} />
+            <BlogItem key={index} title={elem["Heading"]} desc={elem["Short Desc"]} img={elem["Image URL"]} link={elem["Medium Link"]} />
           )}
         )}        
       </div>
