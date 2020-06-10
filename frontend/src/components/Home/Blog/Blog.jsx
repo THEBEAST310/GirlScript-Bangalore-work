@@ -6,13 +6,15 @@ function Blog() {
   const [blogs, setBlogs] = React.useState([]);
 
   React.useEffect(() => {
-    (async () => {
-      const data = await getBlogData();
-      if(data) {
-        setBlogs(data);
-      }
-    })();
-  });
+    getData();
+  }, []);
+
+  const getData = async() => {
+    const data = await getBlogData();
+    if(data) {
+      setBlogs(data);
+    }
+  }
 
   return (
     <section className={styles['blog-section']}>
