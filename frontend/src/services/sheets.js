@@ -1,6 +1,6 @@
 import config from "../config";
 
-const CACHE_EXPIRE_TIME_IN_MIN = 10;
+const CACHE_EXPIRE_TIME_IN_MIN = 48 * 60;
 const CACHE = {};
 /**
  * To get the formatted google sheet data 
