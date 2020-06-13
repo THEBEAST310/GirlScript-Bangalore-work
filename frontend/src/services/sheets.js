@@ -1,21 +1,29 @@
-import config from "../config";
-
+const STORAGE_KEY = "sheet_data";
 const CACHE_EXPIRE_TIME_IN_MIN = 48 * 60;
-const CACHE = {};
+let CACHE = {};
 
 /**
  * To get the formatted google sheet data 
  * @params {String} sheetId The sheet ID to get the data from
  * @params {String} sheetName The name of sheet to get data from
  */
-async function getSheetsData(sheetId, sheetName = '1') {
+export default async function getSheetsData(sheetId, sheetName = '1') {
+  const storedData = localStorage.getItem(STORAGE_KEY);
+  if(storedData) {
+    try {
+      CACHE = await JSON.parse(storedData);
+    } catch(err) {
+      console.error("Imporper data in localStorage");
+    }
+  }
+
   const cacheKey = `${sheetId}-${sheetName}`;
   const cache = CACHE[cacheKey];
-  if(cache && cache.data && cache.expireTime > Date.now()) {
+  const cacheLife = CACHE_EXPIRE_TIME_IN_MIN * 60 * 1000;
+  if(cache && cache.data && cache.createdAt + cacheLife > Date.now()) {
     return cache.data;
   }
 
-  const cacheExpireTime = Date.now() + CACHE_EXPIRE_TIME_IN_MIN * 60 * 1000;
   const response = await fetch(
     `https://spreadsheets.google.com/feeds/list/${sheetId}/${sheetName}/public/values?alt=json`,
     {
@@ -50,22 +58,12 @@ async function getSheetsData(sheetId, sheetName = '1') {
     }
     CACHE[cacheKey] = {
       data: dataArray,
-      expireTime: cacheExpireTime
+      createdAt: Date.now()
     };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(CACHE));
     return dataArray;
   }
   console.error(data);
   return null;
 }
 
-export async function getBlogData() {
-  return (await getSheetsData(config.blogSheetId));
-}
-
-export const blogHeadings = {
-  title: "heading",
-  description: "shortdesc",
-  img: "imageurl",
-  link: "mediumlink",
-  author: "author"
-}
