@@ -2,12 +2,13 @@ import config from "../config";
 
 const CACHE_EXPIRE_TIME_IN_MIN = 48 * 60;
 const CACHE = {};
+
 /**
  * To get the formatted google sheet data 
  * @params {String} sheetId The sheet ID to get the data from
  * @params {String} sheetName The name of sheet to get data from
  */
-async function getSheetsData(sheetId, sheetName = 'Sheet1') {
+async function getSheetsData(sheetId, sheetName = '1') {
   const cacheKey = `${sheetId}-${sheetName}`;
   const cache = CACHE[cacheKey];
   if(cache && cache.data && cache.expireTime > Date.now()) {
@@ -15,24 +16,34 @@ async function getSheetsData(sheetId, sheetName = 'Sheet1') {
   }
 
   const cacheExpireTime = Date.now() + CACHE_EXPIRE_TIME_IN_MIN * 60 * 1000;
-  const request = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}`,
+  const response = await fetch(
+    `https://spreadsheets.google.com/feeds/list/${sheetId}/${sheetName}/public/values?alt=json`,
     {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${config.accessToken}`,
       },
     },
   );
-  const data = await request.json();
-  if(data && data.values && data.values.length > 0) {
+
+  if(response.status >= 400) {
+    console.error("Sheets API error");
+    return null;
+  }
+
+  const data = await response.json();
+  if(data && data.feed && data.feed.entry && data.feed.entry.length > 0) {
     const dataArray = [];
-    const keys = data.values[0];
-    for(let i=1; i<data.values.length; i++) {
+    for(const row of data.feed.entry) {
       const elem = {};
-      for(let j=0;j<data.values[i].length;j++) {
-        const key = keys[j];
-        elem[key] = data.values[i][j];
+      for(const key in row) {
+        if(key.startsWith("gsx$")) {
+          const keyToStore = key.slice(4); 
+          if(row[key]["$t"] !== undefined) {
+            elem[keyToStore] = row[key]["$t"];
+          } else {
+            elem[keyToStore] = row[key];
+          }
+        }
       }
 
       dataArray.push(elem);
@@ -49,4 +60,12 @@ async function getSheetsData(sheetId, sheetName = 'Sheet1') {
 
 export async function getBlogData() {
   return (await getSheetsData(config.blogSheetId));
+}
+
+export const blogHeadings = {
+  title: "heading",
+  description: "shortdesc",
+  img: "imageurl",
+  link: "mediumlink",
+  author: "author"
 }

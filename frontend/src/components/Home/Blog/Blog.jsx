@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Blog.module.scss";
-import { getBlogData } from "../../../services/sheets";
+import { getBlogData, blogHeadings } from "../../../services/sheets";
 
 function Blog() {
   const [blogs, setBlogs] = React.useState([]);
@@ -13,6 +13,7 @@ function Blog() {
     const data = await getBlogData();
     if(data) {
       setBlogs(data);
+      console.log(data);
     }
   }
 
@@ -24,7 +25,13 @@ function Blog() {
       <div className={styles['blog-list-container']}>
         {blogs.map((elem, index) => {
           return (
-            <BlogItem key={index} title={elem["Heading"]} desc={elem["Short Desc"]} img={elem["Image URL"]} link={elem["Medium Link"]} />
+            <BlogItem 
+              key={index} 
+              title={elem[blogHeadings.title]} 
+              desc={elem[blogHeadings.description]} 
+              img={elem[blogHeadings.img]} 
+              link={elem[blogHeadings.link]} 
+            />
           )}
         )}        
       </div>
