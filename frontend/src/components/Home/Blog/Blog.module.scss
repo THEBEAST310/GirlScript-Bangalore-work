@@ -18,7 +18,8 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    margin-left: 40px;
 
     .blog-item-container {
       flex: 1;
@@ -73,6 +74,8 @@
 @media(max-width: 768px) {
   .blog-section {
     .blog-list-container {
+      margin-left: 0;
+
       .blog-item-container {
         margin-right: 0;
 
@@ -91,6 +94,7 @@
 
 @media(max-width: 425px) {
   .blog-section {
+    padding: 40px 20px;
     .blog-list-container {
       .blog-item-container {
         min-width: 200px;
