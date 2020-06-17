@@ -35,8 +35,7 @@ function Blog() {
           )}
         )}        
       </div>
-
-      {/* The button should be implemented with the custom button component */}
+      
       <Button href="https://medium.com">Go To Medium</Button>
     </section>
   );
