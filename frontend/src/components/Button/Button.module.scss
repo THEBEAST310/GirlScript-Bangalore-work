@@ -3,7 +3,7 @@
   color: white;
   border-radius: 50px;
   padding: 10px 40px;
-  font-size: 35px;
+  font-size: 1.4rem;
   outline: none;
   border: none;
   text-decoration: none;
@@ -14,8 +14,8 @@
   }
 }
 
-@media(max-width: 768px) {
-  .btn {
-    font-size: 30px;
-  }
-}
+// @media(max-width: 768px) {
+//   .btn {
+//     font-size: 30px;
+//   }
+// }
