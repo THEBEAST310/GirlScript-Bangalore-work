@@ -1,16 +1,15 @@
 import React from "react";
 import styles from "./Home.module.scss";
+import Blog from "./Blog/Blog";
 import Newsletter from "./Newsletter/Newsletter";
 
-class Home extends React.Component{
-  render(){
-    return(
-      <div>
-        Home
-        <Newsletter />
-      </div>
-    )
-  }
+function Home() {
+  return (
+    <div>
+      {/* <Blog /> */}
+      <Newsletter />
+    </div>
+  );
 }
 
 export default Home;
