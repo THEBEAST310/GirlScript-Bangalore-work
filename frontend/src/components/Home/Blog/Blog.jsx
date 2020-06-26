@@ -1,4 +1,4 @@
-import Headings from "../../Headings/headings";
+import Headings from "../../Headings/Headings";
 import React from "react";
 import styles from "./Blog.module.scss";
 import { getData as getBlogData, dataKeys } from "../../../services/blog";
