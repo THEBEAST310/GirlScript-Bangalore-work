@@ -20,8 +20,8 @@ function Blog() {
 
   return (
     <section className={styles['blog-section']}>
-      {/* The heading should be replaced with the header component */}
-      {/* <h2 className={styles['blog-title']}>Our Blogs</h2>  */}
+      
+      
       <Headings>OUR BLOGS</Headings>
       <div className={styles['blog-list-container']}>
         {blogs.map((elem, index) => {

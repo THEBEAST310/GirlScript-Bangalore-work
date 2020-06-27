@@ -16,8 +16,7 @@
   }
   @media (max-width: 768px) {
     .heading-foreground {
-      color: rgb(239, 115, 38);
-      text-align: center;
+     
       letter-spacing: 5px;
   
       margin-top: -36px;
@@ -25,7 +24,7 @@
     }
   
     .heading-background {
-      color: rgba(239, 115, 38, 0.1);
+     
       letter-spacing: 15px;
       text-align: center;
   
@@ -35,15 +34,14 @@
   
   @media (max-width: 425px) {
     .heading-foreground {
-      color: rgb(239, 115, 38);
-      text-align: center;
+      
       letter-spacing: 5px;
       margin-top: -28px;
       font-size: 15px;
     }
   
     .heading-background {
-      color: rgba(239, 115, 38, 0.1);
+      
       letter-spacing: 15px;
       text-align: center;
       font-size: 21px;
