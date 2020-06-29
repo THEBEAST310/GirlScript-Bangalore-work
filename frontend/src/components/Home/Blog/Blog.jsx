@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./Blog.module.scss";
 import { getData as getBlogData, dataKeys } from "../../../services/blog";
 import Button from "../../Button/Button";
+import Footer from "../../Footer/Footer";
 
 function Blog() {
   const [blogs, setBlogs] = React.useState([]);
@@ -38,6 +39,7 @@ function Blog() {
       </div>
       
       <Button href="https://medium.com">Go To Medium</Button>
+      <Footer/>
     </section>
   );
 }
