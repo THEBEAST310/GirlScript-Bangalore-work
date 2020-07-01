@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css";
+import styles from "./Footer.module.css";
 import FooterHeader from "./FooterHeader";
 import FooterCopyright from "./FooterCopyright";
 import { animateScroll as scroll } from "react-scroll";
@@ -15,7 +15,7 @@ class Footer extends React.Component {
   render() {
     return (
       <div>
-        <footer className="footer-back">
+        <footer className={styles["footer-back"]}>
           <FooterHeader scrollTop={this.scrollToTop} />
           <FooterCopyright scrollTop={this.scrollToTop} />
         </footer>
