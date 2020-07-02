@@ -1,4 +1,9 @@
 .btn {
+  position:absolute;
+  top:75%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   background-color: #ef7326;
   color: white;
   border-radius: 50px;
