@@ -1,16 +1,20 @@
 import React from "react";
 import "./App.css";
-import Lazy from "./components/Lazy/Lazy";
+import Routes from './routes'
+import { BrowserRouter, Switch } from "react-router-dom";
 
-// components
-const Home = Lazy(() => import("./components/Home/Home"));
-
-function App() {
-  return (
-    <div className="App">
-      <Home></Home>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+      <BrowserRouter>
+        <Switch>
+          { Routes }
+        </Switch>
+      </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;
