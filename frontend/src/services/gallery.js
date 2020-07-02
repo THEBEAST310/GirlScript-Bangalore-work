@@ -6,9 +6,9 @@ export const getData = async() => {
 }
 
 export const dataKeys = {
-  title: "heading",
-  author: "author",
-  img: "imageurl",
-  link: "gallery_link",
-  description: "shortdesc"
+  event_name: "Event_Name",
+  details: "Details",
+  img: "Image_Link",
+  link: "Folder_link"
+  
 }
