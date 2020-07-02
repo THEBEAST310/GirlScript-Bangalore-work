@@ -13,7 +13,13 @@
       color: #ef7326;
       font-size: 56px;
     }
-    
+    .middle{
+      position:absolute;
+      top:75%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+    }
     .container:hover{
       .image{
       opacity:0.5;
