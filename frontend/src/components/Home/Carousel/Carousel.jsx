@@ -58,11 +58,6 @@ return (
             <img height="40px" onClick={next} className="my-auto mr-auto" src={nextIcon} alt="next"/>
             
         </div>
-        {/* <div className="v-center">
-            <h1>Stupid Simple Slider</h1>
-            <p>Silky smooth background image slider with css keyframes</p>	
-            <button onClick={()=>updateImageIndex(imageIndex+1)}>Next</button>
-        </div> */}
     </section>
     )     
 }

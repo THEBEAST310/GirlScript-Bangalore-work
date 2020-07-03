@@ -8,7 +8,7 @@ import Carousel from "./Carousel/Carousel";
 import Partnerships from "./Partnerships/Partnerships";
 function Home() {
   return (
-    <div  style={{background : "black"}}>
+    <div>
       <Carousel />
       <Partnerships />
       <Gallery />
