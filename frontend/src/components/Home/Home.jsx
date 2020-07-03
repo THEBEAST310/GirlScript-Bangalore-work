@@ -6,7 +6,7 @@ import Newsletter from "./Newsletter/Newsletter";
 function Home() {
   return (
     <div>
-      {/* <Blog /> */}
+      <Blog />
       <Newsletter />
     </div>
   );
