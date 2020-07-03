@@ -9,7 +9,7 @@ import Partnerships from "./Partnerships/Partnerships";
 function Home() {
   return (
     <div  style={{background : "black"}}>
-       <Carousel />
+      <Carousel />
       <Partnerships />
       <Gallery />
       <Blog />

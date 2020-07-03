@@ -3,27 +3,35 @@ import styles from './Carousel.module.scss'
 import Button from "../../Button/Button"
 import nextIcon from '../../../assets/next.png'
 import prevIcon from '../../../assets/prev.png'
-
-import i1 from "../../../assets/1.jpg"
-import i2 from "../../../assets/2.jpg"
-import i3 from "../../../assets/3.jpg"
-
-let imgs = [i1,i2,i3]
-// //cache 
-// for (let x in imgs) {
-//     let a = new Image();
-//     a.src = x;
-// }
+import { getData as getCarouselData, dataKeys } from "../../../services/carousel";
 
 
 function Carousel(props) {
+    const [images, setImages] = React.useState([]);
+
+    React.useEffect(() => {
+      getData();
+    }, []);
+  
+    const getData = async() => {
+      let data = await getCarouselData();
+      data = data.map(x=> x[dataKeys.image])
+      if(data) {
+        setImages(data);
+        //cache 
+        for (let x in data) {
+            (new Image()).src = x;
+        }
+      }
+    }
+  
 
     let [imageIndex,setimageIndex] = React.useState(0)
     let updateImageIndex = (index) => {
         if (index < 0) {
-            index = imgs.length + index
+            index = images.length + index
         }
-        setimageIndex(index % imgs.length)
+        setimageIndex(index % images.length)
     }
     let next = ()=> updateImageIndex(imageIndex+1)
     let prev = ()=> updateImageIndex(imageIndex-1)
@@ -31,7 +39,7 @@ function Carousel(props) {
 return (
     <section className={styles["banner"]}>
         <div className={styles["slider"]}> 
-            <span key={imageIndex} style={{ background: "url("+imgs[imageIndex]+") no-repeat center center"}}></span>
+            <span key={imageIndex} style={{ background: "url("+images[imageIndex]+") no-repeat center center"}}></span>
         </div>
         <div className={"w-100 d-flex m-auto " + styles['content']}>
             <img height="40px" onClick={prev} className="my-auto ml-auto" src={prevIcon} alt="prev"/>
