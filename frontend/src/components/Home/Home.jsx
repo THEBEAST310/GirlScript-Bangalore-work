@@ -1,11 +1,13 @@
 import React from "react";
-import styles from "./Home.module.scss";
 import Blog from "./Blog/Blog";
 import Newsletter from "./Newsletter/Newsletter";
 
+
+import Partnerships from "./Partnerships/Partnerships";
 function Home() {
   return (
     <div>
+      <Partnerships />
       <Blog />
       <Newsletter />
     </div>

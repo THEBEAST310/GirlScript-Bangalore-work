@@ -1,9 +1,22 @@
 import React from "react";
 import { Route,  Redirect } from "react-router-dom";
 import Lazy from "./components/Lazy/Lazy";
+import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer"
+const componentsNames = {
+    "HOME" : "home"
+}
+const components = {}
+components[componentsNames.HOME] = Lazy(() => import("./components/Home/Home"));
 
-// components
-const Home = Lazy(() => import("./components/Home/Home"));
+function getComponent(props,comp) {
+    const Component = components[comp]
+    return (<>
+                <NavBar current={comp} />
+                <Component {...props} />
+                <Footer/>
+            </>)
+}
 
 
 let Routes = [
@@ -20,8 +33,15 @@ let Routes = [
         key="home"
         path="/home"
         exact
-        component={Home}
-    />
+        render={props=> getComponent(props,componentsNames.HOME)}
+    />,
+
+    <Route
+    key="fallback"
+    path="*"
+    render={() => <Redirect to="/home" /> }
+    />,
+
 ]
 
 export default Routes;

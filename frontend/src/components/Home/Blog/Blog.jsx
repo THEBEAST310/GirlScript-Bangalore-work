@@ -1,3 +1,4 @@
+import Headings from "../../Headings/Headings";
 import React from "react";
 import styles from "./Blog.module.scss";
 import { getData as getBlogData, dataKeys } from "../../../services/blog";
@@ -19,9 +20,9 @@ function Blog() {
 
   return (
     <section className={styles['blog-section']}>
-      {/* The heading should be replaced with the header component */}
-      <h2 className={styles['blog-title']}>Our Blogs</h2>
-
+      
+      
+      <Headings>OUR BLOGS</Headings>
       <div className={styles['blog-list-container']}>
         {blogs.map((elem, index) => {
           return (
@@ -36,7 +37,7 @@ function Blog() {
         )}        
       </div>
       
-      <Button href="https://medium.com">Go To Medium</Button>
+      <Button href="https://medium.com">Go To Medium</Button>     
     </section>
   );
 }
