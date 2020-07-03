@@ -1,0 +1,51 @@
+.fixedTop {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+.navbar {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.transparent {
+    background: rgba(0, 0, 0, 0) !important; /* NON-IE */
+}
+.black {
+    background: black !important;
+}
+.navLogo {
+    height: 40px;
+}
+.navLink {
+    font-size: 1.5rem;
+    font-weight: bold;
+    a {
+        &:focus {
+            outline: 0;
+        }
+        &:after {    
+            background: none repeat scroll 0 0 transparent;
+            bottom: 0;
+            content: "";
+            display: block;
+            height: 5px;
+            left: 50%;
+            background: #ef7326;
+            position: relative;
+            transition: width 0.3s ease 0s, left 0.3s ease 0s;
+            width: 0;
+        }
+        &:hover:after { 
+            width: 100%; 
+            left: 0; 
+        }
+    }
+}
+.active {
+    color: #ef7326 !important;
+}
