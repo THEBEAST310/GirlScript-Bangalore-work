@@ -3,6 +3,7 @@ import styles from "./Gallery.module.scss";
 import { getData as getGalleryData, dataKeys } from "../../../services/gallery";
 import Button from "../../Button/Button";
 import Gallery_pic from "./Gallery_pic.png";
+import Headings from "../../Headings/Headings";
 
 function Gallery() {
   const [pics, setPics] = React.useState([]);
@@ -20,8 +21,7 @@ function Gallery() {
 
   return (
     <section className={styles['gallery-section']}>
-      {/* The heading should be replaced with the header component */}
-      <h2 className={styles['gallery-event-name']}>Gallery</h2>
+      <Headings>Gallery</Headings>
       <div className={styles['container']}>
         <img className={styles['image']} src={Gallery_pic} alt="Gallery_image" width="1200px"/>
         <div className={styles['middle']}>        
