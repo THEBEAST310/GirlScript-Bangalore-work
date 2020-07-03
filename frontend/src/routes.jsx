@@ -2,7 +2,7 @@ import React from "react";
 import { Route,  Redirect } from "react-router-dom";
 import Lazy from "./components/Lazy/Lazy";
 import NavBar from "./components/NavBar/NavBar";
-
+import Footer from "./components/Footer/Footer"
 const componentsNames = {
     "HOME" : "home"
 }
@@ -14,6 +14,7 @@ function getComponent(props,comp) {
     return (<>
                 <NavBar current={comp} />
                 <Component {...props} />
+                <Footer/>
             </>)
 }
 
