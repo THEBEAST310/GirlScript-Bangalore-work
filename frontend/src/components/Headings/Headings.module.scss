@@ -1,0 +1,41 @@
+.heading-foreground {
+  color: rgb(239, 115, 38);
+  text-align: center;
+  letter-spacing: 10px;
+  margin-top: -50px;
+  font-size: 30px;
+}
+
+.heading-background {
+  color: rgba(239, 115, 38, 0.1);
+  letter-spacing: 25px;
+  text-align: center;
+  font-size: 42px;
+}
+@media (max-width: 768px) {
+  .heading-foreground {
+    letter-spacing: 5px;
+    margin-top: -36px;
+    font-size: 20px;
+  }
+
+  .heading-background {
+    letter-spacing: 15px;
+    text-align: center;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 425px) {
+  .heading-foreground {
+    letter-spacing: 5px;
+    margin-top: -28px;
+    font-size: 15px;
+  }
+
+  .heading-background {
+    letter-spacing: 15px;
+    text-align: center;
+    font-size: 21px;
+  }
+}
