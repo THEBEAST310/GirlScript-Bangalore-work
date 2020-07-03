@@ -1,0 +1,93 @@
+
+@keyframes animated-text{
+    from{width: 0%;}
+    to{width: 100%;}
+  }
+
+.heading {
+  color: white;
+  font-size: 3.5rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;    
+  animation: animated-text 2s steps(32,end) 1s 1 normal both;
+}
+
+
+.subheading {
+  font-size: 2rem;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;    
+  animation: animated-text 3s steps(32,end) 1s 1 normal both;
+  animation-delay: 3s;
+}
+
+.banner {
+  display: table;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 0; 
+  }
+  
+  .content {  
+      height: 100vh;
+      position: relative;
+      z-index: 4;
+      padding: 0 5%; 
+    }
+    .slider span {
+      height: 100% !important;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      z-index: 0;
+      opacity: 0;
+      -webkit-animation: fade-in 2s 1 both;
+      -moz-animation: fade-in 2s 1 both;
+      animation: fade-in 2s 1 both;
+     }
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0.3; 
+  }
+  100% {
+    opacity: 1; 
+  } 
+}
+
+
+@-moz-keyframes fade-in {
+  0% {
+    opacity: 0.3; 
+  }
+  100% {
+    opacity: 1; 
+  } 
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.3; 
+  }
+  100% {
+    opacity: 1; 
+  } 
+}
