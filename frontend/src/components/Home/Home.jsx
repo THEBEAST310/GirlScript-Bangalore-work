@@ -1,19 +1,20 @@
 import React from "react";
 import Blog from "./Blog/Blog";
-import Newsletter from "./Newsletter/Newsletter";
 import Gallery from "./Gallery/Gallery";
 import Carousel from "./Carousel/Carousel";
-
-
+import AboutHome from "./AboutHome/AboutHome";
+import Statistics from "./Statistics/Statistics";
 import Partnerships from "./Partnerships/Partnerships";
+
 function Home() {
   return (
     <div>
       <Carousel />
-      <Partnerships />
+      <AboutHome />
+      <Statistics />
       <Gallery />
       <Blog />
-      <Newsletter />
+      <Partnerships />
     </div>
   );
 }
