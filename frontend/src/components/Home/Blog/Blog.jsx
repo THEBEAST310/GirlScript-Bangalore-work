@@ -11,45 +11,53 @@ function Blog() {
     getData();
   }, []);
 
-  const getData = async() => {
+  const getData = async () => {
     const data = await getBlogData();
-    if(data) {
+    if (data) {
       setBlogs(data);
     }
-  }
+  };
 
   return (
-    <section className={styles['blog-section']}>
-      
-      
+    <section className={styles["blog-section"]}>
       <Headings>OUR BLOGS</Headings>
-      <div className={styles['blog-list-container']}>
+      <div className={styles["blog-list-container"]}>
         {blogs.map((elem, index) => {
           return (
-            <BlogItem 
-              key={index} 
-              title={elem[dataKeys.title]} 
-              desc={elem[dataKeys.description]} 
-              img={elem[dataKeys.img]} 
-              link={elem[dataKeys.link]} 
+            <BlogItem
+              key={index}
+              title={elem[dataKeys.title]}
+              desc={elem[dataKeys.description]}
+              img={elem[dataKeys.img]}
+              link={elem[dataKeys.link]}
             />
-          )}
-        )}        
+          );
+        })}
       </div>
-      
-      <Button href="https://medium.com">Go To Medium</Button>     
+
+      <Button href="https://medium.com/@girlscriptblr">Go To Medium</Button>
     </section>
   );
 }
 
 function BlogItem({ title, desc, img, link }) {
   return (
-    <div className={styles['blog-item-container']}>
-      <div style={{ backgroundImage: `url("${img}")` }} className={styles['blog-item-image']}></div>
-      <div className={styles['blog-item-contents']}>
-        <h4 className={styles['blog-item-title']}>{title}</h4>
-        <div className={styles['blog-item-desc']}>{desc}</div>
-        <a href={link} target="_blank" rel="noopener noreferrer" className={styles['blog-item-btn']}>Read More</a>
+    <div className={styles["blog-item-container"]}>
+      <div
+        style={{ backgroundImage: `url("${img}")` }}
+        className={styles["blog-item-image"]}
+      ></div>
+      <div className={styles["blog-item-contents"]}>
+        <h4 className={styles["blog-item-title"]}>{title}</h4>
+        <div className={styles["blog-item-desc"]}>{desc}</div>
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles["blog-item-btn"]}
+        >
+          Read More
+        </a>
       </div>
     </div>
   );
