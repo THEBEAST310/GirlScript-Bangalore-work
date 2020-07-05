@@ -16,7 +16,6 @@ function Partnerships() {
   }, []);
   const getData = async () => {
     const data = await getPartnershipData();
-    console.log(data);
     if (data) {
       setPartnerships(data);
     }

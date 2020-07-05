@@ -6,7 +6,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import {
   getData as getAboutHomeData,
   dataKeys,
-} from "../../../services/carousel";
+} from "../../../services/homeData";
 
 function AboutHome() {
   const [aboutData, setAboutHomeData] = React.useState([]);
@@ -17,7 +17,6 @@ function AboutHome() {
 
   const getData = async () => {
     const data = await getAboutHomeData();
-    console.log(data);
     if (data) {
       setAboutHomeData(data);
     }
