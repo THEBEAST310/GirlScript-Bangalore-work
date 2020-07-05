@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Statistics.module.scss";
 import { Container, Row, Col } from "react-bootstrap";
-import { getData as getStatsData, dataKeys } from "../../../services/carousel";
+import { getData as getStatsData, dataKeys } from "../../../services/homeData";
 
 function Statistics() {
   const [statsData, setStatsData] = React.useState([]);
@@ -12,7 +12,6 @@ function Statistics() {
 
   const getData = async () => {
     const data = await getStatsData();
-    console.log(data);
     if (data) {
       setStatsData(data);
     }
