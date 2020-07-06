@@ -1,26 +1,12 @@
-
-@keyframes animated-text{
-    from{width: 0%;}
-    to{width: 100%;}
-  }
-
 .heading {
   color: white;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: bold;
-  white-space: nowrap;
-  overflow: hidden;    
-  animation: animated-text 2s steps(32,end) 1s 1 normal both;
 }
-
 
 .subheading {
   font-size: 2rem;
   color: white;
-  white-space: nowrap;
-  overflow: hidden;    
-  animation: animated-text 3s steps(32,end) 1s 1 normal both;
-  animation-delay: 3s;
 }
 
 .banner {
@@ -45,7 +31,6 @@
       height: 100vh;
       position: relative;
       z-index: 4;
-      padding: 0 5%; 
     }
     .slider span {
       height: 100% !important;
