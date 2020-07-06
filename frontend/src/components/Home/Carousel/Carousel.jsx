@@ -7,6 +7,23 @@ import {
   getData as getCarouselData,
   dataKeys,
 } from "../../../services/homeData";
+const HEADING = "Welcome to GirlScript Bangalore";
+const SUBHEADING = "Education First";
+const TYPEWRITERSPEED = 100; 
+
+const cacheImg = path => new Promise(resolve => {
+  const img = new Image()
+  img.onload = () => resolve(path)
+  img.onerror = () => resolve(path)
+  img.src = path
+});
+
+function typeWriter(elem,txt,i=0) {
+  if (i < txt.length) {
+    elem.innerHTML += txt.charAt(i);
+    setTimeout(()=>typeWriter(elem,txt,++i), TYPEWRITERSPEED);
+  }
+}
 
 function Carousel(props) {
   const [images, setImages] = React.useState([]);
@@ -28,9 +45,7 @@ function Carousel(props) {
     if (carousalList) {
       setImages(carousalList);
       //cache
-      for (let x in carousalList) {
-        new Image().src = x;
-      }
+      for await (let img of carousalList.map(cacheImg));
     }
   };
 
@@ -44,59 +59,57 @@ function Carousel(props) {
   let next = () => updateImageIndex(imageIndex + 1);
   let prev = () => updateImageIndex(imageIndex - 1);
 
+  let heading = React.useRef()
+  let subheading = React.useRef()
+
+  React.useEffect(()=>{
+    if (!heading.current.innerHTML ) {
+        subheading.current.innerHTML = ""
+        typeWriter(heading.current,HEADING);
+        typeWriter(subheading.current,SUBHEADING);
+    }
+  },[])
   return (
     <section className={styles["banner"]}>
       <div className={styles["slider"]}>
         <span
           key={imageIndex}
           style={{
-            background:
-              "url(" + images[imageIndex] + ") no-repeat center center",
+            backgroundImage:
+              "url(" + images[imageIndex] + ")",
           }}
         ></span>
       </div>
-      <div className={"w-100 d-flex m-auto " + styles["content"]}>
-        <img
-          height="40px"
-          onClick={prev}
-          className="my-auto ml-auto"
-          src={prevIcon}
-          alt="prev"
-        />
-        <div className="my-auto">
+      <div className={"row m-auto " + styles["content"]}>
+        <div className="offset-xl-1 col-xl-1 col-2 d-flex">
+          <img
+            height="40px"
+            onClick={prev}
+            className="m-auto"
+            src={prevIcon}
+            alt="prev"
+          />
+        </div>
+        <div className="my-auto col-8">
           <div>
-            <p
-              className={[
-                styles["animation"],
-                styles["heading"],
-                "my-auto",
-              ].join(" ")}
-            >
-              Welcome to GirlScript Bangalore
-            </p>
-            <div className="d-flex">
-              <p
-                className={[
-                  styles["animation"],
-                  styles["subheading"],
-                  "mx-auto",
-                ].join(" ")}
-              >
-                Education First
-              </p>
-            </div>
+            <div className="d-flex flex-column">
+            <p className={styles["heading"]+ " m-auto"} ref={heading} />
+            <p className={styles["subheading"] + " mx-auto"} ref = {subheading} />
+            </div> 
             <div className="mt-5">
               <Button className>JOIN US</Button>
             </div>
           </div>
         </div>
-        <img
-          height="40px"
-          onClick={next}
-          className="my-auto mr-auto"
-          src={nextIcon}
-          alt="next"
-        />
+        <div className="col-xl-1 col-2 d-flex">
+          <img
+            height="40px"
+            onClick={next}
+            className="m-auto"
+            src={nextIcon}  
+            alt="next"
+          />
+        </div>
       </div>
     </section>
   );

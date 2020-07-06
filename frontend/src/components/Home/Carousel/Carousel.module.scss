@@ -6,11 +6,8 @@
 
 .heading {
   color: white;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: bold;
-  white-space: nowrap;
-  overflow: hidden;    
-  animation: animated-text 2s steps(32,end) 1s 1 normal both;
 }
 
 
@@ -45,7 +42,6 @@
       height: 100vh;
       position: relative;
       z-index: 4;
-      padding: 0 5%; 
     }
     .slider span {
       height: 100% !important;
