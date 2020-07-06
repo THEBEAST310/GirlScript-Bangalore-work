@@ -18,10 +18,14 @@ const cacheImg = path => new Promise(resolve => {
   img.src = path
 });
 
-function typeWriter(elem,txt,i=0) {
-  if (i < txt.length) {
-    elem.innerHTML += txt.charAt(i);
-    setTimeout(()=>typeWriter(elem,txt,++i), TYPEWRITERSPEED);
+const delay = time => new Promise(resolve => setTimeout(resolve,time))
+
+async function typeWriter(elem, txt) {
+  elem.innerHTML = "";
+  let i = 0;
+  while (i < txt.length) {
+    await delay(TYPEWRITERSPEED);
+    elem.innerHTML += txt.charAt(i++);
   }
 }
 
@@ -64,9 +68,9 @@ function Carousel(props) {
 
   React.useEffect(()=>{
     if (!heading.current.innerHTML ) {
-        subheading.current.innerHTML = ""
-        typeWriter(heading.current,HEADING);
-        typeWriter(subheading.current,SUBHEADING);
+        typeWriter(heading.current,HEADING)
+          .then(()=>delay(TYPEWRITERSPEED * 4))
+          .then(()=>typeWriter(subheading.current,SUBHEADING))
     }
   },[])
   return (
