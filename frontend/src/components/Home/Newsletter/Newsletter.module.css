@@ -37,12 +37,7 @@
 }
 .socialIcons{
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 35px;
-    padding-top: 10px;
-
 }
 .socialIcons i{
     padding: 0px 18px;
@@ -50,10 +45,13 @@
 .socialIcons a{  
     color: inherit;
     text-decoration: none;
+    transition: transform 250ms;
+    display: inline-block;
 }
 .socialIcons a:hover{
     color: white;
     text-decoration: none;
+    transform: translateY(-4px);
 }
 @media only screen and (max-width: 500px){
     .socialIcons i{
