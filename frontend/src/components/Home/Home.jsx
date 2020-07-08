@@ -1,13 +1,20 @@
 import React from "react";
-import styles from "./Home.module.scss";
 import Blog from "./Blog/Blog";
-import Newsletter from "./Newsletter/Newsletter";
+import Gallery from "./Gallery/Gallery";
+import Carousel from "./Carousel/Carousel";
+import AboutHome from "./AboutHome/AboutHome";
+import Statistics from "./Statistics/Statistics";
+import Partnerships from "./Partnerships/Partnerships";
 
 function Home() {
   return (
     <div>
-      {/* <Blog /> */}
-      <Newsletter />
+      <Carousel />
+      <AboutHome />
+      <Statistics />
+      <Gallery />
+      <Blog />
+      <Partnerships />
     </div>
   );
 }

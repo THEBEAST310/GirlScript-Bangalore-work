@@ -1,0 +1,67 @@
+.community-partnerships {
+  padding: 40px;
+  background-color: #000;
+  color: #fff;
+  font-size: 20px;
+
+  .heading {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ef7326;
+    font-size: 56px;
+  }
+
+  .partnership-item-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+
+    .community-partnership-images {
+      background-color: white;
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+      width: 100%;
+      height: 200px;
+      border-radius: 20px;
+      margin-top: 100px;
+      margin-bottom: 100px;
+      margin-right: 10px;
+      //border:2px solid gray;
+    }
+    hr {
+      border: none;
+      border-top: 3px double #333;
+      color: #333;
+      overflow: visible;
+      text-align: center;
+      height: 5px;
+    }
+    hr:after {
+      background: #fff;
+      padding: 0 4px;
+      position: relative;
+      top: -13px;
+    }
+    .partnership-name {
+      font-size: 20px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .partnership-item-container {
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+  .partnership-item-container a {
+    display: inline-block;
+    padding: 14px;
+    text-decoration: none;
+  }
+
+  .partnership-item-container a:hover {
+    background-color: #777;
+  }
+}

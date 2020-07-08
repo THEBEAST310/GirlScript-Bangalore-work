@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import styles from "../Newsletter/Newsletter.module.css";
+import Headings from "../Headings/Headings";
+import styles from "./Newsletter.module.css";
 import axios from "axios";
 import "font-awesome/css/font-awesome.min.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -65,7 +66,7 @@ class News extends React.Component {
   render() {
     return (
       <div className={styles["form-container"]}>
-        <h2 className={styles["sectionHeader"]}>NEWSLETTER</h2>
+        <Headings>NEWSLETTER</Headings>
         <div className={styles["rw"]}>
           <form
             onSubmit={this.handleSubmit}
