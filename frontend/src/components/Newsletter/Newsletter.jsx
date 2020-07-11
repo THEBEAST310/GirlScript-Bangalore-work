@@ -5,6 +5,7 @@ import axios from "axios";
 import "font-awesome/css/font-awesome.min.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Row, Col } from "react-bootstrap";
 
 const GOOGLE_FORM_EMAIL_ID = "entry.165895151";
 const GOOGLE_FORM_ACTION =
@@ -66,8 +67,12 @@ class News extends React.Component {
   render() {
     return (
       <div className={styles["form-container"]}>
-        <Headings>NEWSLETTER</Headings>
-        <div className={styles["rw"]}>
+        <Row className="pb-5">
+          <Col>
+            <Headings>NEWSLETTER</Headings>
+          </Col>
+        </Row>
+        <div>
           <form
             onSubmit={this.handleSubmit}
             className={styles["rw"]}
@@ -103,23 +108,46 @@ class News extends React.Component {
           </form>
         </div>
         <div className={styles["socialIcons"]}>
-          <a href="https://twitter.com/GirlscriptBLR">
+          <a
+            href="https://twitter.com/GirlscriptBLR"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fa fa-twitter"></i>
           </a>
-          <a href="https://www.facebook.com/girlscriptbangalore">
+          <a
+            href="https://www.facebook.com/girlscriptbangalore"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fa fa-facebook-square"></i>
           </a>
-          <a href="https://www.linkedin.com/in/girlscriptbangalore/">
+          <a
+            href="https://www.linkedin.com/in/girlscriptbangalore/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fa fa-linkedin-square"></i>
           </a>
-          {/* What link to put here ? */}
-          <a href="#">
+          <a
+            href="https://t.me/joinchat/NHqmwhWjzsOQKdgpiETTUQ"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fa fa-paper-plane"></i>
           </a>
-          <a href="https://www.instagram.com/girlscriptbangalore/">
+          <a
+            href="https://www.instagram.com/girlscriptbangalore/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fa fa-instagram"></i>
           </a>
-          <a href="https://medium.com/girlscript-bangalore">
+          <a
+            href="https://medium.com/girlscript-bangalore"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fa fa-medium"></i>
           </a>
         </div>

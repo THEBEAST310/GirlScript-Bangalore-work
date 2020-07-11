@@ -1,148 +1,78 @@
-.container:hover {
-    opacity:0.5;
-    .middle{
-      opacity:1;
-    }
+.container {
+  position: relative;
 }
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
 }
-.column {
-  flex: 50%;
-  padding: 0 4px;
+
+.container:hover .overlay {
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
 }
-.column image {
-  margin-top: 8px;
-  vertical-align: middle;
+
+.button {
+  position: absolute;
+  width: 1100px;
+  left: 0;
+  top: 310px;
+  text-align: center;
+  opacity: 0;
 }
-// .gallery-section {
-//     padding: 100px;
-    
-//     // Might not be required when the global css are added.
-//     background-color: #000;
-//     color: #fff;
-//     font-size: 400px;
-  
-//     // To be removed when Heading component is added
-//     .gallery-event-name {
-//       text-transform: uppercase;
-//       font-weight: bold;
-//       color: #ef7326;
-//       font-size: 56px;
-//     }
-//     .middle{
-//       position:absolute;
-//       top:75%;
-//       left:50%;
-//       transform:translate(-50%, -50%);
-//       -ms-transform: translate(-50%, -50%);
-//     }
-//     .container:hover{
-//       .image{
-//       opacity:0.5;
-//       }
-//       .middle{
-//         opacity:1;
-//       }
-//     }
-//     .gallery-list-container {
-//       display: flex;
-//       justify-content: space-between;
-//       flex-wrap: wrap;
-//       margin-bottom: 40px;
-//       margin-left: 40px;
-  
-//       .gallery-item-container {
-//         flex: 1;
-//         min-width: 350px;
-//         height: auto;
-//         background-color: #ef7326;
-//         border-radius: 20px;
-//         color: black;
-//         position: relative;
-//         margin-right: 40px;
-//         margin-top: 125px;
-  
-//         .gallery-item-image {
-//           position: absolute;
-//           top: 0;
-//           right: 50%;
-//           width: 200px;
-//           height: 200px;
-//           background-size: cover;
-//           background-position: center;
-//           border-radius: 50%;
-//           border: 5px solid #000;
-//           transform: translate(50%, -50%);
-//         }
-  
-//         .gallery-item-contents {
-//           padding: 15px;
-//           padding-top: 125px;
-//           margin-bottom: 20px; 
-  
-//           .gallery-item-event-name {
-//             font-weight: bold;
-//             margin-bottom: 20px;
-//             font-size: 36px;
-//           }
-  
-//           .gallery-item-details {
-//             margin-bottom: 40px;
-//           }
-  
-//           .gallery-item-btn {
-//             background-color: #000;
-//             color: #fff;
-//             padding: 10px 35px;
-//             border-radius: 30px;
-//           }
-//         }
-//       }
-//     }
-//   }
-  
-//   @media(max-width: 768px) {
-//     .gallery-section {
-//       .gallery-list-container {
-//         margin-left: 0;
-  
-//         .gallery-item-container {
-//           margin-right: 0;
-  
-//           .gallery-item-image {
-//             width: 175px;
-//             height: 175px;
-//           }
-  
-//           .gallery-item-contents {
-//             padding-top: 100px;
-//           }
-//         }
-//       }
-//     }
-//   }
-  
-//   @media(max-width: 425px) {
-//     .gallery-section {
-//       padding: 40px 20px;
-      
-//       .gallery-list-container {
-//         .gallery-item-container {
-//           min-width: 200px;
-  
-//           .gallery-item-image {
-//             width: 150px;
-//             height: 150px;
-//           }
-  
-//           .gallery-item-contents {
-//             padding-top: 100px;
-//           }
-//         }
-//       }
-//     }
-//   }
-  
+
+.button a {
+  z-index: 1;
+}
+
+.container:hover .button {
+  opacity: 1;
+}
+
+.col-image-rec {
+  width: 640px;
+  height: 320px;
+}
+
+.col-image-sq {
+  width: 512px;
+  height: 320px;
+}
+
+@media (max-width: 768px) {
+  .col-image-rec {
+    width: 480px;
+    height: 240px;
+  }
+
+  .col-image-sq {
+    width: 384px;
+    height: 240px;
+  }
+  .button {
+    width: 670px;
+    top: 233px;
+  }
+}
+
+@media (max-width: 425px) {
+  .col-image-rec {
+    width: 268px;
+    height: 134px;
+  }
+
+  .col-image-sq {
+    width: 214px;
+    height: 134px;
+  }
+
+  .button {
+    width: 370px;
+    top: 129px;
+  }
+}

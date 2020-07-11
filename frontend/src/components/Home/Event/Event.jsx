@@ -44,7 +44,7 @@ function Event() {
         })}
       </div>
 
-      <Button href="#">See all Events</Button>
+      <Button href="">See all Events</Button>
     </section>
   );
 }
