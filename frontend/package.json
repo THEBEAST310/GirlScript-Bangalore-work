@@ -1,5 +1,4 @@
 {
-  "homepage": "http://girlscript-blr.github.io/BLRwebsite",
   "name": "girlscript-blr-frontend",
   "version": "0.1.0",
   "private": true,
@@ -32,9 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:prod": "react-scripts build && rm -rf ../backend/public/app/* && cp -R build/* ../backend/public/app",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "build:prod": "react-scripts build && rm -rf ../backend/public/app/* && cp -R build/* ../backend/public/app"
   },
   "eslintConfig": {
     "extends": "react-app"
