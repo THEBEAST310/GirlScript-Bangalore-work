@@ -6,10 +6,11 @@ import Newsletter from "./components/Newsletter/Newsletter";
 import Footer from "./components/Footer/Footer";
 const componentsNames = {
   HOME: "home",
+  ABOUT: "about",
 };
 const components = {};
 components[componentsNames.HOME] = Lazy(() => import("./components/Home/Home"));
-
+components[componentsNames.ABOUT] = Lazy(() => import("./components/About/About"));
 function getComponent(props, comp) {
   const Component = components[comp];
   return (
@@ -31,7 +32,12 @@ let Routes = [
     exact
     render={(props) => getComponent(props, componentsNames.HOME)}
   />,
-
+  <Route
+    key="about"
+    path="/about"
+    exact
+    render={(props)=>getComponent(props, componentsNames.ABOUT)}
+    />,
   <Route key="fallback" path="*" render={() => <Redirect to="/home" />} />,
 ];
 
