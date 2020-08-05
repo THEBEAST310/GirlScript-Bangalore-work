@@ -7,10 +7,16 @@ import Footer from "./components/Footer/Footer";
 const componentsNames = {
   HOME: "home",
   ABOUT: "about",
+  CONTACT: "contact",
 };
 const components = {};
 components[componentsNames.HOME] = Lazy(() => import("./components/Home/Home"));
-components[componentsNames.ABOUT] = Lazy(() => import("./components/About/About"));
+components[componentsNames.ABOUT] = Lazy(() =>
+  import("./components/About/About")
+);
+components[componentsNames.CONTACT] = Lazy(() =>
+  import("./components/ContactUs/ContactUs")
+);
 function getComponent(props, comp) {
   const Component = components[comp];
   return (
@@ -36,8 +42,14 @@ let Routes = [
     key="about"
     path="/about"
     exact
-    render={(props)=>getComponent(props, componentsNames.ABOUT)}
-    />,
+    render={(props) => getComponent(props, componentsNames.ABOUT)}
+  />,
+  <Route
+    key="contact"
+    path="/contact"
+    exact
+    render={(props) => getComponent(props, componentsNames.CONTACT)}
+  />,
   <Route key="fallback" path="*" render={() => <Redirect to="/home" />} />,
 ];
 

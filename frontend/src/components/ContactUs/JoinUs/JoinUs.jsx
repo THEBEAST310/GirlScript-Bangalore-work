@@ -1,9 +1,9 @@
 import React from "react";
 import "./JoinUs.css";
-import Headings from "../Headings/Headings";
+import Headings from "../../Headings/Headings";
 import { Row, Col, Card } from "react-bootstrap";
-import Button from "../Button/Button";
-import { getData as getJoinUsData, dataKeys } from "../../services/joinUs";
+import Button from "../../Button/Button";
+import { getData as getJoinUsData, dataKeys } from "../../../services/joinUs";
 
 function JoinUs() {
   const [joinUs, setJoinsUs] = React.useState([]);
@@ -21,7 +21,7 @@ function JoinUs() {
 
   return (
     <div>
-      <Row className="pb-5">
+      <Row className="py-5">
         <Col>
           <Headings>JOIN US</Headings>
         </Col>
@@ -57,7 +57,9 @@ function CardItem({ title, img, description, link }) {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{description}</Card.Text>
-        <Button variant="primary" href={link}>Register</Button>
+        <Button variant="primary" href={link}>
+          Register
+        </Button>
       </Card.Body>
     </Card>
   );

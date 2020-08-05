@@ -1,18 +1,18 @@
-.about-us-heading{
-    font-size: 56px;
-    color:#EF7326;
-    padding-top: 10%;
+.about-us-heading {
+  font-size: 56px;
+  color: #ef7326;
+  padding-top: 10%;
 }
 hr {
   border: none;
-  border-top: 3px double #EF7326;
+  border-top: 3px double #ef7326;
   color: #333;
   overflow: visible;
   text-align: center;
   height: 5px;
-  margin-top:-4rem;
-  margin-bottom:1rem;
-  margin-left:12rem;
+  margin-top: -4rem;
+  margin-bottom: 1rem;
+  margin-left: 12rem;
 }
 hr:after {
   background: #fff;
@@ -20,155 +20,145 @@ hr:after {
   position: relative;
   top: -13px;
 }
-.about-us-container{
-    width:80%;
-    margin-left:10%;
-    margin-right:25%;
-    .about-subheading1{
-        color:white;
-        font-weight:bolder;
-        text-align:left;
-        margin-top:-10px;
-    }
-    .about-subheading2{
-        color:#EF7326;
-        font-weight:bolder;
-        text-align:left;
-    }
-    .about-gs{
-        color:white;
-        text-align:left;
-        font-size: 20px;
-        margin-left:40%;
-        margin-top:4rem;
-    }
-    .about-gs-img{
-        width: 45%;
-        height: 45%;
-        margin-left: -50rem;
-        margin-top: -15rem;
-    }
-    .about-gs-bangalore{
-        color:white;
-        text-align:left;
-        font-size:20px;
-        margin-right:40%;
-        margin-top:-8rem;
-        
-    }
-    .about-gsblr-img{
-            width: 40%;
-            height: 45%;
-            margin-right: -40rem;
-            margin-top: 5rem;   
-    }
-    .about-heading2{
-        margin-top: -10rem;
-        margin-left: 1rem;
-        margin-right: 10rem;
-    }
-    .about-gs-subheading3{
-        color:white;
-        text-align:right;
-        font-weight:bolder;
-    }
-    .about-gs-subheading4{
-        color:#EF7326;
-        text-align:right;
-        font-weight:bolder;
-    }
-    .about-gs-subheading5{
-        color:#EF7326;
-        text-align:right;
-        justify-content: left;
-        font-weight:bolder;
-    }
-    .about-gsblr-line{
-        border: none;
-        border-top: 3px double #EF7326;
-        color: #333;
-        overflow: visible;
-        text-align: center;
-        height: 5px;
-        margin-top: -1.5rem;
-        margin-bottom: 1rem;
-        margin-left: 2rem;
-        margin-right: 12rem;
-    }
-    .about-gsblr-line:after {
-        background: #fff;
-        padding: 0 4px;
-        position: relative;
-        
-      }
-    .about-ourmissions-heading{
-        color:#EF7326;
-        font-weight:bolder;
-        margin-top:15rem;
-        
-    }
-    .about-ourmission{
-        color:white;
-        margin-top:5rem;
-        font-size:20px;
-    }
+.about-us-container {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 25%;
+  .about-subheading1 {
+    color: white;
+    font-weight: bolder;
+    text-align: left;
+    margin-top: -10px;
+  }
+  .about-subheading2 {
+    color: #ef7326;
+    font-weight: bolder;
+    text-align: left;
+  }
+  .about-gs {
+    color: white;
+    text-align: left;
+    font-size: 20px;
+    margin-left: 40%;
+    margin-top: 4rem;
+  }
+  .about-gs-img {
+    width: 45%;
+    height: 45%;
+    margin-left: -50rem;
+    margin-top: -15rem;
+  }
+  .about-gs-bangalore {
+    color: white;
+    text-align: left;
+    font-size: 20px;
+    margin-right: 40%;
+    margin-top: -8rem;
+  }
+  .about-gsblr-img {
+    width: 40%;
+    height: 45%;
+    margin-right: -40rem;
+    margin-top: 5rem;
+  }
+  .about-heading2 {
+    margin-top: -10rem;
+    margin-left: 1rem;
+    margin-right: 10rem;
+  }
+  .about-gs-subheading3 {
+    color: white;
+    text-align: right;
+    font-weight: bolder;
+  }
+  .about-gs-subheading4 {
+    color: #ef7326;
+    text-align: right;
+    font-weight: bolder;
+  }
+  .about-gs-subheading5 {
+    color: #ef7326;
+    text-align: right;
+    justify-content: left;
+    font-weight: bolder;
+  }
+  .about-gsblr-line {
+    border: none;
+    border-top: 3px double #ef7326;
+    color: #333;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+    margin-top: -1.5rem;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+    margin-right: 12rem;
+  }
+  .about-gsblr-line:after {
+    background: #fff;
+    padding: 0 4px;
+    position: relative;
+  }
+  .about-ourmissions-heading {
+    color: #ef7326;
+    font-weight: bolder;
+    margin-top: 6rem;
+  }
+  .about-ourmission {
+    color: white;
+    margin-top: 5rem;
+    font-size: 20px;
+  }
 }
-.about-goals{
-    color:white;
-    font-size:20px;
-    padding-bottom:4rem;
+.about-goals {
+  color: white;
+  font-size: 20px;
+  padding: 3rem 0 4rem 0;
 }
-.about-goals-heading{
-    color:#EF7326;
-    font-weight:bolder;
-    margin-top:10rem;
+.about-goals-heading {
+  color: #ef7326;
+  font-weight: bolder;
+  margin-top: 15px;
 }
-.mission-points-heading{
-    color:#EF7326;
-    font-weight:bolder;
-    margin-top:5rem;
-    padding-bottom:5rem;
+.mission-points-heading {
+  color: #ef7326;
+  font-weight: bolder;
+  margin-top: 20px;
+  padding-bottom: 5rem;
 }
-.about-mission-points{
-    color:white;
-    font-size:20px;
-        
-        td{
-            padding-right:5px;
-            padding-left:50px;
-        }
+.about-mission-points {
+  color: white;
+  font-size: 20px;
+  padding-top: 20px;
 }
 
-@media (max-width: 500 px){
-    .about-us-container{
-        .about-gs{
-            color:white;
-            text-align:left;
-            font-size: 20px;
-            margin-left:0;
-            margin-top:4rem;
-        }
-        .about-gs-img{
-            width: 45%;
-            height: 45%;
-            margin-left: 0rem;
-            margin-top: -15rem;
-        }
-        .about-gs-bangalore{
-            color:white;
-            text-align:left;
-            font-size:20px;
-            margin-right:40%;
-            margin-top:-8rem;
-            
-        }
-        .about-gsblr-img{
-                width: 40%;
-                height: 45%;
-                margin-right: -40rem;
-                margin-top: 5rem;   
-        }
+@media (max-width: 500 px) {
+  .about-us-container {
+    .about-gs {
+      color: white;
+      text-align: left;
+      font-size: 20px;
+      margin-left: 0;
+      margin-top: 4rem;
     }
-}      
-
-
+    .about-gs-img {
+      width: 45%;
+      height: 45%;
+      margin-left: 0rem;
+      margin-top: -15rem;
+    }
+    .about-gs-bangalore {
+      color: white;
+      text-align: left;
+      font-size: 20px;
+      margin-right: 40%;
+      margin-top: -8rem;
+    }
+    .about-gsblr-img {
+      width: 40%;
+      height: 45%;
+      margin-right: -40rem;
+      margin-top: 5rem;
+    }
+  }
+}
