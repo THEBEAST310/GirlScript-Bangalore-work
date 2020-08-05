@@ -67,7 +67,7 @@ class News extends React.Component {
   render() {
     return (
       <div className={styles["form-container"]}>
-        <Row className="pb-5">
+        <Row className="py-5">
           <Col>
             <Headings>NEWSLETTER</Headings>
           </Col>

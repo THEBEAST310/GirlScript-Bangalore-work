@@ -1,5 +1,5 @@
 import React from "react";
-import "./JoinUs.css";
+import styles from "./JoinUs.module.scss";
 import Headings from "../../Headings/Headings";
 import { Row, Col, Card } from "react-bootstrap";
 import Button from "../../Button/Button";
@@ -20,48 +20,54 @@ function JoinUs() {
   };
 
   return (
-    <div>
-      <Row className="py-5">
-        <Col>
+    <div className={styles["join-us-back"]}>
+      <Row>
+        <Col className="pb-5">
           <Headings>JOIN US</Headings>
         </Col>
       </Row>
-      <div className="cardContainer">
+      <Row className="ml-4">
         {joinUs.map((elem, index) => {
           return (
             <CardItem
               key={index}
               title={elem[dataKeys.title]}
-              desc={elem[dataKeys.description]}
+              description={elem[dataKeys.description]}
               img={elem[dataKeys.img]}
               link={elem[dataKeys.link]}
             />
           );
         })}
         ;
-      </div>
+      </Row>
     </div>
   );
 }
 function CardItem({ title, img, description, link }) {
   return (
-    <Card
-      style={{
-        width: "18rem",
-        backgroundColor: "black",
-        border: "white solid 2px",
-        color: "white",
-      }}
-    >
-      <Card.Img variant="top" src="holder.js/100px180" src={img} />
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>{description}</Card.Text>
-        <Button variant="primary" href={link}>
-          Register
-        </Button>
-      </Card.Body>
-    </Card>
+    <Col xs="12" sm="12" md="6" lg="3" className="pz-5">
+      <div className={styles["zoom"]}>
+        <Card className={styles["card-back"]}>
+          <center>
+            <Card.Img
+              variant="top"
+              src="holder.js"
+              src={img}
+              className={styles["card-image"]}
+            />
+          </center>
+          <Card.Body>
+            <Card.Title>{title}</Card.Title>
+            <Card.Text>{description}</Card.Text>
+            <div className={styles["button-display"]}>
+              <Button variant="primary" href={link}>
+                Register
+              </Button>
+            </div>
+          </Card.Body>
+        </Card>
+      </div>
+    </Col>
   );
 }
 
