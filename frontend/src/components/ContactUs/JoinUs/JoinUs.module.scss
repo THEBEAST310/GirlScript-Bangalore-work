@@ -1,0 +1,43 @@
+.join-us-back {
+  padding: 10% 0 5% 0;
+}
+
+.card-back {
+  width: 18rem;
+  background-color: black;
+  border: white solid 2px;
+  color: white;
+}
+
+.button-display {
+  display: none;
+}
+
+.zoom {
+  transition: transform 0.2s;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.2); /* IE 9 */
+  -webkit-transform: scale(1.2); /* Safari 3-8 */
+  transform: scale(1.2);
+
+  .button-display {
+    display: block;
+  }
+}
+
+.card-image {
+  margin-top: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+@media only screen and (max-width: 500px) {
+  .cardContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+}

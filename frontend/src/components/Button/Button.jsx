@@ -7,24 +7,24 @@ import { Link } from "react-router-dom";
  *
  * To open an external link on button click, add `href` prop as in `a` tag.
  *
- * You can also pass `onClick` prop on the button 
+ * You can also pass `onClick` prop on the button
  */
 function Button({ children, onClick, to, href }) {
-  if(to) {
-     return (
+  if (to) {
+    return (
       <Link to={to} className={styles["btn"]} onClick={onClick}>
         {children}
       </Link>
-     );
-  } 
+    );
+  }
 
-  if(href) {
+  if (href) {
     return (
-      <a 
-        target="_blank" 
-        rel="noreferrer noopener" 
-        href={href} 
-        className={styles["btn"]} 
+      <a
+        target="_blank"
+        rel="noreferrer noopener"
+        href={href}
+        className={styles["btn"]}
         onClick={onClick}
       >
         {children}
